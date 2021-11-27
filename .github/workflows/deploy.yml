@@ -23,10 +23,10 @@ jobs:
       - name: Pushes to another repository
         uses: cpina/github-action-push-to-another-repository@main
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          API_TOKEN_GITHUB: ${{ secrets.GH_SECRET_DEPLOY }}
         with:
           source-directory: 'public'
-          destination-github-username: 'valentindi'
+          destination-github-username: ${{ secrets.GH_USERNAME }}
           destination-repository-name: 'valentindi.github.io'
-          user-email: github-actions@valentindittmar.eu
+          user-email: ${{ secrets.GH_EMAIL }}
           target-branch: main
