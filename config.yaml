@@ -1,0 +1,46 @@
+baseURL: 'http://valentindittmar.eu/'
+languageCode: en-us
+title: Valentin Dittmar
+theme: PaperMod
+
+languages:
+  en:
+    languageName: "English"
+    weight: 1
+    menu:
+        main:
+            - name: About
+              url: about
+              weight: 5
+  de:
+    languageName: "Deutsch"
+    weight: 1
+    menu:
+        main:
+            - name: Über
+              url: about
+              weight: 5
+
+params:
+  profileMode:
+    enabled: true
+    title: Valentin Dittmar
+    subtitle: Software Developer
+    imageUrl: /me-square.jpg
+    imageTitle: Valentin Dittmar
+    imageWidth: 240
+    imageHeight: 240
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/Valentindi"
+    - name: twitter
+      url: "https://twitter.com/valentindittmar"
+    - name: instagram
+      url: "https://www.instagram.com/valentindittmar/"
+    - name: linkedin
+      url: "https://www.linkedin.com/in/valentin-d-633b40175/"
+    - name: email
+      url: "mailto:website-contact@valentindittmar.eu"
+
+    

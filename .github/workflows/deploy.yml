@@ -22,25 +22,17 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: install npm
-        run: npm install -g --prefer-offline --no-audit npm@${{ env.NPM_VERSION }}
-        shell: bash
-
-      - name: install dependencies
-        run: npm ci
-        shell: bash
-
       - name: build
-        run: npm run build
+        run: hugo
         shell: bash
-        env:
-          VITE_BUILD_DATE: ${{ steps.date.outputs.date }}
-          VITE_BUILD_HASH: ${{ env.GITHUB_SHA }}
 
-      - name: Deploy with gh-pages
-        run: |
-          git remote set-url origin https://git:${{secrets.GH_SECRET_DEPLOY}}@github.com/valentindi/valentindi.github.io.git
-          npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
-          touch .nojekyll
+      - name: Pushes to another repository
+        uses: cpina/github-action-push-to-another-repository@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          source-directory: 'public'
+          destination-github-username: 'valentindi'
+          destination-repository-name: 'valentindi.github.io'
+          user-email: github-actions@valentindittmar.eu
+          target-branch: main
