@@ -17,11 +17,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Setup Node
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-
       - name: Build Hugo
         uses: lowply/build-hugo@v0.88.1
 
