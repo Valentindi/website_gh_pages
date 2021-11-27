@@ -22,9 +22,8 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: build
-        run: hugo
-        shell: bash
+      - name: Build Hugo
+        uses: lowply/build-hugo@v0.88.1
 
       - name: Pushes to another repository
         uses: cpina/github-action-push-to-another-repository@main
