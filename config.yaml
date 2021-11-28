@@ -9,17 +9,25 @@ languages:
     weight: 1
     menu:
         main:
-            - name: About
-              url: about
-              weight: 5
+            # - name: About
+            #   url: /about
+            #   weight: 1
+            - name: Imprint & Privacy Policy
+              url: /impressum
+              weight: 2
+
+
   de:
     languageName: "Deutsch"
     weight: 1
     menu:
         main:
-            - name: Über
-              url: about
-              weight: 5
+            # - name: Über
+            #   url: /about
+            #   weight: 1
+            - name: Impressum & Datenschutz
+              url: ../impressum
+              weight: 2
 
 params:
   profileMode:
