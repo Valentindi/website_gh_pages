@@ -25,7 +25,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.GH_SECRET_DEPLOY }}
         with:
-          source-directory: 'public'
+          source-directory: 'public/'
           destination-github-username: ${{ secrets.GH_USERNAME }}
           destination-repository-name: 'valentindi.github.io'
           user-email: ${{ secrets.GH_EMAIL }}
