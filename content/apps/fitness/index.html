@@ -21,7 +21,7 @@
             };
             try {
             const res = await fetch("https://www.strava.com/api/v3/oauth/token", requestOptions)
-            const json = res.json();
+            const json = await res.json();
             console.log(json);
             const {access_token, refresh_token} = json;
             document.write("access_token=", access_token);
@@ -35,7 +35,7 @@
         code = new URLSearchParams(document.location.search).get("code")
         if (code) {
             document.write("CODE=", code);
-            fetchToken("e285280653d30242db8a9ddd05774b2de7429eb5")
+            fetchToken(code)
         }
         console.log(code);
     </script>
