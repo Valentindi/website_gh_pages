@@ -2,10 +2,51 @@
 
 <head>
     <script src="./assets/app.js"></script>
+    <script type="text/javascript">
+        const fetchToken = async (code) => {
+            var headers = new Headers();
+            headers.append("Content-Type", "application/x-www-form-urlencoded");
+
+            var urlencoded = new URLSearchParams();
+            urlencoded.append("client_id", "77633");
+            urlencoded.append("client_secret", "14aadbcea2b10d7dd05503e3eb993e489e384cd9");
+            urlencoded.append("code", code);
+            urlencoded.append("grant_type", "authorization_code");
+
+            var requestOptions = {
+                method: 'POST',
+                headers: headers,
+                body: urlencoded,
+                redirect: 'follow'
+            };
+            try {
+            const res = await fetch("https://www.strava.com/api/v3/oauth/token", requestOptions)
+            const json = res.json();
+            console.log(json);
+            const {access_token, refresh_token} = json;
+            document.write("access_token=", access_token);
+            document.write("refresh_token=", refresh_token);
+            } catch (e) {
+                console.error(e);
+                document.write("Something went wrong");
+            }
+        }
+
+        code = new URLSearchParams(document.location.search).get("code")
+        if (code) {
+            document.write("CODE=", code);
+            fetchToken("e285280653d30242db8a9ddd05774b2de7429eb5")
+        }
+        console.log(code);
+    </script>
 </head>
 
 <body>
-    <h2>Test</h2>
+    <h2>Strava</h2>
+    <a
+        href="https://www.strava.com/oauth/authorize?client_id=77633&response_type=code&redirect_uri=https://valentindi.github.io/apps/fitness/&approval_prompt=force&scope=activity:read">
+        autorize
+    </a>
 </body>
 
 </html>
