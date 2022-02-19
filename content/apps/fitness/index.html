@@ -24,8 +24,8 @@
             const json = await res.json();
             console.log(json);
             const {access_token, refresh_token} = json;
-            document.write("access_token=", access_token);
-            document.write("refresh_token=", refresh_token);
+            document.write("<br/>access_token=", access_token);
+            document.write("<br/>refresh_token=", refresh_token);
             } catch (e) {
                 console.error(e);
                 document.write("Something went wrong");
@@ -34,7 +34,7 @@
 
         code = new URLSearchParams(document.location.search).get("code")
         if (code) {
-            document.write("CODE=", code);
+            document.write("<br/>CODE=", code);
             fetchToken(code)
         }
         console.log(code);
