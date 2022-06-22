@@ -1,4 +1,5 @@
 baseURL: 'http://valentindittmar.eu/'
+copyright = "Copyright 1970-{year}."
 languageCode: en-us
 title: Valentin Dittmar
 theme: PaperMod
